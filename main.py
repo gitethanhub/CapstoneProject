@@ -2,6 +2,16 @@
 #// KEEP TRYING EVERYTHING OUT \\
 #// Do things one at time\\
 #// Try to think things out first , then code \\\
+
+# Little tips
+
+# 1. Indent mutiple lines of code
+# 1. Highlight all the code 2. Click Tab
+
+# 2. Delete indents on multiple lines of code
+# 1. Highlight all the code 2. Click Shift + Tab
+
+
 # 1st. Import and initialize(start) the pygame libary
 import pygame
 from random import randint
