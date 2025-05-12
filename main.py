@@ -772,7 +772,8 @@ secert_image_surface = pygame.transform.scale(portal_surface,(30,30))
 secert_image_rect = secert_image_surface.get_rect(center = (0,0))
 
 
-
+end_farmer_player_surface = pygame.transform.scale(player_farmer_surface,(170,180))
+end_player_surface = pygame.transform.scale(player_surface,(150,150))
 
 
 # Home Screen
@@ -846,6 +847,7 @@ async def main():
     global feed_cow, feed_pig, feed_sheep, milk_button_press, carrot_button_press, wool_button_press 
     global buy_cow_button_press, buy_pig_button_press, buy_sheep_button_press, buy_more_food_button_press, finish_farmer_game_button_press 
     global player_farmer_surface, player_left_or_right, mouse_press_down, selected_food, cow_list, pig_list, sheep_list
+    global end_farmer_player_surface, end_player_surface
 
 
     while(running):
@@ -903,6 +905,7 @@ async def main():
                         player_question_answer = False
                         npc_checker = True  
 
+                    
 
                         print("player is on career 1 screen")
                     elif(farmer_select_button_rect.collidepoint(event.pos) == True):
@@ -1005,7 +1008,7 @@ async def main():
                         # print("Player completed level. Go to gameover screen. ")
                         career_1_gameoverscreen = True
                         career_1_gamescreen = False
-                        player_text = ("Click the space bar to go back to the screen before.")
+                        player_text = ("Click the space bar to go to the screen before. Or click shift to go to the end screen. ")
 
 
                 if(event.type == npc_spawn_timer):
@@ -1024,6 +1027,10 @@ async def main():
                     if(event.key == pygame.K_SPACE):
                         career_1_gameoverscreen = False
                         select_screen = True
+                    if(event.key == pygame.K_LSHIFT):
+                        career_1_gameoverscreen = False
+                        end_screen = True
+                        player_text = ("This is the end, hope you had fun. Click the space bar to return to the start. ")
 
 
             elif(player_labor_screen == True):
@@ -1607,9 +1614,6 @@ async def main():
             if(finish_farmer_game_button_press):
                 end_screen = True
                 selling_and_buying_screen = False
-                end_farmer_player_surface = pygame.transform.scale(player_farmer_surface,(170,180))
-                end_player_surface = pygame.transform.scale(player_surface,(150,150))
-
 
             # Money Text
             update_player_money(player_money)
